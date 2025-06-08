@@ -1,0 +1,30 @@
+{
+    "name": "AlpoLib.Data.Editor",
+    "rootNamespace": "",
+    "references": [
+        "AlpoLib.Core",
+        "AlpoLib.Data"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Google.Apis.Auth.dll",
+        "Google.Apis.Auth.PlatformServices.dll",
+        "Google.Apis.Core.dll",
+        "Google.Apis.dll",
+        "Google.Apis.Drive.v3.dll",
+        "Google.Apis.PlatformServices.dll",
+        "Google.Apis.Sheets.v4.dll",
+        "Newtonsoft.Json.dll",
+        "ExcelDataReader.dll",
+        "ExcelDataReader.DataSet.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

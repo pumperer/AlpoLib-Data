@@ -1,0 +1,17 @@
+{
+    "name": "AlpoLib.Data",
+    "rootNamespace": "",
+    "references": [
+        "GUID:591837093fc36a640bb4267910fc32f3",
+        "GUID:22b28092377e3e647bc3372c5273efb0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
