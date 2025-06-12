@@ -88,6 +88,7 @@ namespace alpoLib.Data.Serialization.Editor
         private const string NAMESPACE_HEADER =
             "using System;\n" +
             "using System.Collections.Generic;\n" +
+            "using System.ComponentModel;\n" +
             "using System.Linq;\n" +
             "using Newtonsoft.Json.Linq;\n" +
             "using alpoLib.Core.Serialization;\n" +
