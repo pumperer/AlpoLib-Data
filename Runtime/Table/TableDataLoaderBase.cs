@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using alpoLib.Core.Foundation;
 using alpoLib.Core.Serialization;
 using alpoLib.Data.Serialization;
 using Newtonsoft.Json.Linq;
@@ -43,8 +44,11 @@ namespace alpoLib.Data
 
     public abstract record TableDataBase
     {
-        [DataColumn("id")]
+        [DataColumn("Id")]
         public int Id { get; set; }
+        
+        [DataColumn("IsActive")]
+        public CustomBoolean IsActive { get; set; }
     }
 
     public interface ICustomSerializer
