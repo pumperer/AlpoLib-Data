@@ -100,7 +100,11 @@ namespace alpoLib.Data
 				var l = instance as IUserDataMapperBase;
 				var c = instance as UserDataManagerBase;
 				AddLoader(c, l);
-				c.OnCreateInstance();
+			}
+			
+			foreach (var userDataManagerBase in userManagerDic.Values)
+			{
+				userDataManagerBase.OnCreateInstance();
 			}
 		}
 
