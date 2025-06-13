@@ -25,6 +25,8 @@ namespace alpoLib.Data
 	
 	public abstract class UserDataManagerBase : DataManagerHolder
 	{
+		public abstract void OnCreateInstance();
+		
 		public virtual void CreateNewUser()
 		{
 		}
@@ -98,6 +100,7 @@ namespace alpoLib.Data
 				var l = instance as IUserDataMapperBase;
 				var c = instance as UserDataManagerBase;
 				AddLoader(c, l);
+				c.OnCreateInstance();
 			}
 		}
 
