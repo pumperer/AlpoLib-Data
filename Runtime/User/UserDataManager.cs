@@ -5,12 +5,14 @@ using System.Reflection;
 using alpoLib.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
+using Object = System.Object;
 
 namespace alpoLib.Data
 {
 	public interface IUserDataOpener
 	{
-		void DeserializeAll();
+		Awaitable DeserializeAllAsync();
 		void SerializeAll();
 	}
 

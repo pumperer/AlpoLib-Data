@@ -61,7 +61,7 @@ namespace alpoLib.Data
             return json;
         }
 
-        public void DeserializeAll()
+        public async Awaitable DeserializeAllAsync()
         {
             var state = GameStateManager.Instance.GetState<TemporaryDataState>();
             var s = state.D;
@@ -71,6 +71,7 @@ namespace alpoLib.Data
                 {
                     mapper.CreateNewUser();
                     mapper.OnInitialize();
+                    await Awaitable.NextFrameAsync();
                 }
                 return;
             }
@@ -95,6 +96,8 @@ namespace alpoLib.Data
                 {
                     Debug.LogError(e.Message);
                 }
+                
+                await Awaitable.NextFrameAsync();
             }
         }
 

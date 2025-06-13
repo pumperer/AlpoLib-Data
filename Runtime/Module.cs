@@ -30,9 +30,14 @@ namespace alpoLib.Data
             _userDataManager.Initialize();
         }
 
-        public static async Awaitable LoadTableAsync()
+        public static async Awaitable LoadTableDataAsync()
         {
             await _tableDataManager.Open_Bin_Async(TableDataManager.LocationType.StreamingAssets);
+        }
+
+        public static async Awaitable LoadUserDataAsync()
+        {
+            await _userDataManager.DeserializeAllAsync();
         }
     }
 }
