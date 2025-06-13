@@ -20,7 +20,7 @@ namespace alpoLib.Data
 
 	public abstract record UserDataBase
 	{
-		
+		public int Id { get; set; }
 	}
 	
 	public abstract class UserDataManagerBase : DataManagerHolder
