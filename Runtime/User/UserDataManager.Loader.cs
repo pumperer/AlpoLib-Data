@@ -70,6 +70,7 @@ namespace alpoLib.Data
                 foreach (var (_, mapper) in userManagerDic)
                 {
                     mapper.CreateNewUser();
+                    mapper.OnInitialize();
                 }
                 return;
             }

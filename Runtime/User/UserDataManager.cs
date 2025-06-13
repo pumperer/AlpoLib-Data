@@ -72,10 +72,15 @@ namespace alpoLib.Data
 
 		public void Initialize()
 		{
-			foreach (var p in userManagerDic)
+			foreach (var userDataManagerBase in userManagerDic.Values)
 			{
-				p.Value.OnInitialize();
+				userDataManagerBase.OnCreateInstance();
 			}
+			
+			// foreach (var p in userManagerDic)
+			// {
+			// 	p.Value.OnInitialize();
+			// }
 		}
 
 		private void FindUserDataLoaders()
@@ -100,11 +105,6 @@ namespace alpoLib.Data
 				var l = instance as IUserDataMapperBase;
 				var c = instance as UserDataManagerBase;
 				AddLoader(c, l);
-			}
-			
-			foreach (var userDataManagerBase in userManagerDic.Values)
-			{
-				userDataManagerBase.OnCreateInstance();
 			}
 		}
 
