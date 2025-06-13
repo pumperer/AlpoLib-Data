@@ -21,11 +21,16 @@ namespace alpoLib.Data.Composition
             UserData = userData;
         }
 
+        protected virtual bool CustomEqualityComparer(CompositionDataBase<TBase, TUser> other)
+        {
+            return EqualityComparer<TBase>.Default.Equals(BaseData, other.BaseData) && EqualityComparer<TUser>.Default.Equals(UserData, other.UserData);
+        }
+        
         public bool Equals(CompositionDataBase<TBase, TUser> other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
-            return EqualityComparer<TBase>.Default.Equals(BaseData, other.BaseData) && EqualityComparer<TUser>.Default.Equals(UserData, other.UserData);
+            return CustomEqualityComparer(other);
         }
 
         public override bool Equals(object obj)
