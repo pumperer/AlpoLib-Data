@@ -12,6 +12,9 @@ namespace alpoLib.Data
     {
         public virtual void Save()
         {
+            if (UserDataManager == null)
+                return;
+            
             if (UserDataManager.WillBeDestroy)
                 return;
             
