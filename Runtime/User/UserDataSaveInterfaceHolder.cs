@@ -14,6 +14,9 @@ namespace alpoLib.Data
         {
             if (UserDataManager == null)
                 return;
+
+            if (!UserDataManager.IsLoadComplete)
+                return;
             
             if (UserDataManager.WillBeDestroy)
                 return;

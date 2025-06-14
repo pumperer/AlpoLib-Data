@@ -15,6 +15,8 @@ namespace alpoLib.Data
     
     public partial class UserDataManager : IUserDataOpener
 	{
+        public bool IsLoadComplete { get; private set; }
+        
         public void SerializeAll()
         {
             if (WillBeDestroy)
@@ -74,6 +76,8 @@ namespace alpoLib.Data
                     mapper.OnInitialize();
                     await Awaitable.NextFrameAsync();
                 }
+
+                IsLoadComplete = true;
                 return;
             }
 
@@ -100,6 +104,7 @@ namespace alpoLib.Data
                 
                 await Awaitable.NextFrameAsync();
             }
+            IsLoadComplete = true;
         }
 
         private void Deserialize(UserDataManagerBase manager, JToken token, JsonSerializer serializer)
