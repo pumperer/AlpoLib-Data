@@ -31,16 +31,16 @@ namespace alpoLib.Data
         
         public void Open_Bin(LocationType locationType, Action<bool> completeCallback = null)
         {
-            _ = Open(locationType, false, completeCallback);
+            AwaitableHelper.Run(() => Open(locationType, false, completeCallback));
         }
 
         public void Open_Bin_Preloadable(TableDataManager.LocationType locationType,
             Action<bool> completeCallback = null)
         {
-            _ = Open(locationType, true, completeCallback);
+            AwaitableHelper.Run(() => Open(locationType, true, completeCallback));
         }
 
-        private async Task Open(LocationType location, bool onlyPreloadable, Action<bool> completeCallback = null)
+        private async Awaitable Open(LocationType location, bool onlyPreloadable, Action<bool> completeCallback = null)
         {
             Debug.Log($"Start load table data from {location}.");
             await LoadTableData(location, onlyPreloadable);
