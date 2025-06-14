@@ -67,6 +67,7 @@ namespace alpoLib.Data
             var s = state.D;
             if (string.IsNullOrEmpty(s))
             {
+                Debug.Log("No user data found, creating new user data.");
                 foreach (var (_, mapper) in userManagerDic)
                 {
                     mapper.CreateNewUser();
@@ -107,11 +108,19 @@ namespace alpoLib.Data
             var fields = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             var serializeFields = fields.Where(fi => fi.GetCustomAttribute<SerializeField>() != null);
 
+            Debug.Log($"Deserialize {type.Name} : {token}");
+            
             foreach (var f in serializeFields)
             {
                 object obj = null;
                 var fieldToken = token[f.Name];
-                obj = fieldToken == null ? Activator.CreateInstance(f.FieldType) : fieldToken.ToObject(f.FieldType, serializer);
+                if (fieldToken == null)
+                {
+                    Debug.LogWarning($"Field token is null : {f.Name}");
+                    obj = Activator.CreateInstance(f.FieldType);
+                }
+                else
+                    obj = fieldToken.ToObject(f.FieldType, serializer);
                 f.SetValue(manager, obj);
             }
         }
